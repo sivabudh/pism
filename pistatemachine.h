@@ -6,6 +6,7 @@
 
 #include "pitypes.h"
 #include "disconnectedqueue.h"
+#include "commandqueue.h"
 
 class PiStateMachine : public QObject
 {
@@ -19,13 +20,16 @@ signals:
 
 public slots:
   void enqueueDisconnectedPumpRequest(PumpServiceRequest const);
+  void enqueueCommand(PITHUNDER::Messages const);
 
 public slots:
   void start();
+  void stop();
 
 private:
   QStateMachine sm;
 
 private:
   DisconnectedQueue discs;
+  CommandQueue comms;
 };

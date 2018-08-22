@@ -10,11 +10,6 @@ void DisconnectedQueue::append(const PumpServiceRequest request_)
   this->discs.append(request_);
 }
 
-bool DisconnectedQueue::isEmpty()
-{
-  return this->discs.isEmpty();
-}
-
 void DisconnectedQueue::process()
 {
   if(!this->discs.isEmpty())

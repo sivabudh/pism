@@ -1,5 +1,7 @@
 #include <QDebug>
+
 #include "disconnectedtransitions.h"
+#include "disconnectedqueue.h"
 
 DisconnectedProcessedTransition::DisconnectedProcessedTransition(DisconnectedQueue * queue_)
   : QSignalTransition(queue_, SIGNAL(processed()))

@@ -13,7 +13,6 @@ public:
   DisconnectedQueue(QObject *parent_);
 
   void append(PumpServiceRequest const);
-  bool isEmpty();
 
 signals:
   void currentPump(PumpID const);

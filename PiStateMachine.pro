@@ -17,10 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     pistatemachine.cpp \
     disconnectedqueue.cpp \
-    disconnectedtransitions.cpp
+    disconnectedtransitions.cpp \
+    commandqueue.cpp \
+    commandtransitions.cpp
 
 HEADERS += \
     pistatemachine.h \
     pitypes.h \
     disconnectedqueue.h \
-    disconnectedtransitions.h
+    disconnectedtransitions.h \
+    commandqueue.h \
+    commandtransitions.h

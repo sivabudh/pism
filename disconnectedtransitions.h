@@ -1,14 +1,13 @@
 #pragma once
 
-#include <QStateMachine>
 #include <QSignalTransition>
 
-#include "disconnectedqueue.h"
+class DisconnectedQueue;
 
 class DisconnectedProcessedTransition : public QSignalTransition
 {
 public:
-  DisconnectedProcessedTransition(DisconnectedQueue * queue_);
+  DisconnectedProcessedTransition(DisconnectedQueue *);
 
-  bool eventTest(QEvent * e_) override;
+  bool eventTest(QEvent *) override;
 };
