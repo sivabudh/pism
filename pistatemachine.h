@@ -5,13 +5,14 @@
 #include <QStateMachine>
 
 #include "pitypes.h"
+#include "disconnectedqueue.h"
 
 class PiStateMachine : public QObject
 {
   Q_OBJECT
 
 public:
-  explicit PiStateMachine(QObject *parent = nullptr);
+  explicit PiStateMachine(QObject * parent_);
 
 public slots:
   void processDisconnectedPumpRequest(PumpID const);
@@ -29,7 +30,7 @@ private:
   QStateMachine sm;
 
 private:
-  QQueue<PumpServiceRequest> discs;
+  DisconnectedQueue discs;
   QQueue<PITHUNDER::Messages> comms;
   QQueue<PumpServiceRequest> conns;
 };

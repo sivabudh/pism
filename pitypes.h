@@ -1,5 +1,7 @@
 #pragma once
 
+using PumpID = int;
+
 namespace PITHUNDER {
   struct Messages
   {
@@ -9,8 +11,7 @@ namespace PITHUNDER {
 
 struct PumpServiceRequest
 {
-
+  PumpID pumpId;
 };
 
 
-using PumpID = int;
