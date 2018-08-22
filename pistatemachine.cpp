@@ -1,3 +1,4 @@
+#include <QDebug>
 #include <QState>
 #include <QFinalState>
 
@@ -10,24 +11,34 @@ PiStateMachine::PiStateMachine(QObject * parent_)
   , discs(this)
 {
   auto finalState = new QFinalState();
+  connect(finalState, &QState::entered, [](){
+    qDebug() << "Final state entered and finished!";
+  });
 
   {
     auto processedTransition = new DisconnectedProcessedTransition(&this->discs);
     processedTransition->setTargetState(finalState);
 
-    auto disconnected = new QState(&this->sm);
-    disconnected->addTransition(processedTransition);
+    auto disconnectedState = new QState(&this->sm);
+    disconnectedState->addTransition(processedTransition);
 
-    this->sm.setInitialState(disconnected);
+    connect(disconnectedState, &QState::entered,
+            &this->discs, &DisconnectedQueue::process);
+
+    this->sm.setInitialState(disconnectedState);
   }
 
   this->sm.addState(finalState);
+
+  connect(&this->discs, &DisconnectedQueue::currentPump,
+          this, &PiStateMachine::currentPump);
 }
 
-void PiStateMachine::processDisconnectedPumpRequest(const PumpID)
+void PiStateMachine::enqueueDisconnectedPumpRequest(const PumpServiceRequest request_)
 {
-
+  this->discs.append(request_);
 }
+
 
 
 void PiStateMachine::start()

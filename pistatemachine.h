@@ -14,8 +14,11 @@ class PiStateMachine : public QObject
 public:
   PiStateMachine(QObject * parent_);
 
+signals:
+  void currentPump(PumpID const);
+
 public slots:
-  void processDisconnectedPumpRequest(PumpID const);
+  void enqueueDisconnectedPumpRequest(PumpServiceRequest const);
 
 public slots:
   void start();

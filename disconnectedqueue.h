@@ -16,11 +16,12 @@ public:
   bool isEmpty();
 
 signals:
-  void processed(int numProcessed_);
+  void currentPump(PumpID const);
+  void processed();
 
 public slots:
+  void process();
 
 private:
   QQueue<PumpServiceRequest> discs;
-  int numProcessed = 0;
 };

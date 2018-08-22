@@ -1,13 +1,8 @@
-#include <QTimer>
-
 #include "disconnectedqueue.h"
 
 DisconnectedQueue::DisconnectedQueue(QObject *parent_)
   : QObject(parent_)
 {
-  QTimer::singleShot(1000, [=]() {
-    emit processed(this->numProcessed++);
-  });
 }
 
 void DisconnectedQueue::append(const PumpServiceRequest request_)
@@ -18,4 +13,15 @@ void DisconnectedQueue::append(const PumpServiceRequest request_)
 bool DisconnectedQueue::isEmpty()
 {
   return this->discs.isEmpty();
+}
+
+void DisconnectedQueue::process()
+{
+  if(!this->discs.isEmpty())
+  {
+    auto pumpRequest = this->discs.dequeue();
+    emit currentPump(pumpRequest.pumpId);
+  }
+
+  emit processed();
 }

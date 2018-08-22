@@ -11,7 +11,4 @@ public:
   DisconnectedProcessedTransition(DisconnectedQueue * queue_);
 
   bool eventTest(QEvent * e_) override;
-
-private:
-  DisconnectedQueue * queue;
 };
