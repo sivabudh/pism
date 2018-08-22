@@ -18,4 +18,5 @@ SOURCES += main.cpp \
     pistatemachine.cpp
 
 HEADERS += \
-    pistatemachine.h
+    pistatemachine.h \
+    pitypes.h
