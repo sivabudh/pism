@@ -1,4 +1,5 @@
 #include <QState>
+#include <QFinalState>
 
 #include "pistatemachine.h"
 #include "disconnectedtransitions.h"
@@ -8,25 +9,19 @@ PiStateMachine::PiStateMachine(QObject * parent_)
   : QObject(parent_)
   , discs(this)
 {
-  auto disconnected = new QState(&this->sm);
-  disconnected->addTransition(
-        new DisconnectedProcessedTransition(&this->discs)
-  );
-}
+  auto finalState = new QFinalState();
 
-void PiStateMachine::processClientCommand(const PITHUNDER::Messages)
-{
+  {
+    auto processedTransition = new DisconnectedProcessedTransition(&this->discs);
+    processedTransition->setTargetState(finalState);
 
-}
+    auto disconnected = new QState(&this->sm);
+    disconnected->addTransition(processedTransition);
 
-void PiStateMachine::processConnectedPumpRequest(const PumpID)
-{
+    this->sm.setInitialState(disconnected);
+  }
 
-}
-
-void PiStateMachine::start()
-{
-  this->sm.start();
+  this->sm.addState(finalState);
 }
 
 void PiStateMachine::processDisconnectedPumpRequest(const PumpID)
@@ -34,7 +29,8 @@ void PiStateMachine::processDisconnectedPumpRequest(const PumpID)
 
 }
 
-void PiStateMachine::resume()
-{
 
+void PiStateMachine::start()
+{
+  this->sm.start();
 }

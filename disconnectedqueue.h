@@ -16,10 +16,11 @@ public:
   bool isEmpty();
 
 signals:
-  void processed();
+  void processed(int numProcessed_);
 
 public slots:
 
 private:
-  QQueue<PumpServiceRequest> m_discs;
+  QQueue<PumpServiceRequest> discs;
+  int numProcessed = 0;
 };
