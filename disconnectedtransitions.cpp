@@ -10,5 +10,5 @@ bool DisconnectedProcessedTransition::eventTest(QEvent * e_)
   if(!QSignalTransition::eventTest(e_))
     return false;
 
-  return this->queue->isEmpty();
+  return ! this->queue->isEmpty();
 }
