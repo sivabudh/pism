@@ -55,7 +55,7 @@ PiStateMachine::PiStateMachine(QObject * parent_)
     this->sm.addState(finalState);
 
     connect(finalState, &QState::entered, [](){
-      qDebug() << "Final state entered and finished!";
+      qDebug() << "Final state entered and is finished!";
     });
   }
 }

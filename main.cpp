@@ -1,15 +1,14 @@
-#include <QCoreApplication>
+#include <QApplication>
 #include <QQueue>
 #include <QDebug>
 #include <QTimer>
 
 #include "pitypes.h"
 #include "pistatemachine.h"
+#include "gilbarcopollingstatemachine.h"
 
-int main(int argc, char *argv[])
+void testPiStateMachine()
 {
-  QCoreApplication a(argc, argv);
-
   PiStateMachine machine(nullptr);
   machine.enqueueDisconnectedPumpRequest(PumpServiceRequest {
     2
@@ -32,6 +31,20 @@ int main(int argc, char *argv[])
 
 
   machine.start();
+}
+
+void testGilbarcoPolling()
+{
+  GilbarcoPollingStateMachine machine(nullptr);
+
+  machine.start();
+}
+
+int main(int argc, char *argv[])
+{
+  QApplication a(argc, argv);
+
+  testGilbarcoPolling();
 
   return a.exec();
 }

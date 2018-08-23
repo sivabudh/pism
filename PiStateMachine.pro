@@ -1,4 +1,4 @@
-QT -= gui
+QT += gui widgets
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -19,7 +19,10 @@ SOURCES += main.cpp \
     disconnectedqueue.cpp \
     disconnectedtransitions.cpp \
     commandqueue.cpp \
-    commandtransitions.cpp
+    commandtransitions.cpp \
+    gilbarcopollingstatemachine.cpp \
+    gilbarcopollingtransitions.cpp \
+    gilbarcoevents.cpp
 
 HEADERS += \
     pistatemachine.h \
@@ -27,4 +30,7 @@ HEADERS += \
     disconnectedqueue.h \
     disconnectedtransitions.h \
     commandqueue.h \
-    commandtransitions.h
+    commandtransitions.h \
+    gilbarcopollingstatemachine.h \
+    gilbarcopollingtransitions.h \
+    gilbarcoevents.h
