@@ -1,4 +1,4 @@
-#include "gilbarcostates.h"
+#include "gilbarcopollingstates.h"
 
 PollState::PollState(QState * parent_)
   : QState(parent_)
