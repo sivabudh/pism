@@ -3,6 +3,7 @@
 #include <QFinalState>
 
 #include "gilbarcopollingstatemachine.h"
+#include "gilbarcopollingtransitions.h"
 
 GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
   : QObject(parent_)

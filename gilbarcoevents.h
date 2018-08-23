@@ -2,40 +2,33 @@
 
 #include <QEvent>
 
-enum class GilbarcoEvent
-{
-  call = QEvent::User+1000,
-  previous_call,
-  previous_off,
-  d,
-  nozzle_number
-};
 
 class CallEvent : public QEvent
 {
 public:
-  CallEvent()
-    : QEvent(QEvent::Type(GilbarcoEvent::call))
-  {}
+  CallEvent();
 };
 
 class PreviousCallEvent : public QEvent
 {
 public:
-  PreviousCallEvent()
-    : QEvent(QEvent::Type(GilbarcoEvent::previous_call))
-  {}
+  PreviousCallEvent();
 };
 
 class PreviousOffEvent : public QEvent
 {
 public:
-  PreviousOffEvent()
-    : QEvent(QEvent::Type(GilbarcoEvent::previous_off))
-  {}
+  PreviousOffEvent();
 };
 
 class DEvent : public QEvent
 {
 public:
-}
+  DEvent();
+};
+
+class NozzleNumberEvent : public QEvent
+{
+public:
+  NozzleNumberEvent();
+};
