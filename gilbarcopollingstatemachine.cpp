@@ -1,18 +1,18 @@
 #include <QDebug>
-#include <QState>
 #include <QFinalState>
 
 #include "gilbarcopollingstatemachine.h"
 #include "gilbarcopollingtransitions.h"
+#include "gilbarcopollingstates.h"
 
 GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
   : QObject(parent_)
 {
 
-  auto pollState = new QState(&this->sm);
-  auto processCallState = new QState(&this->sm);
-  auto preState = new QState(&this->sm);
-  auto externalState = new QState(&this->sm);
+  auto pollState = new PollState(&this->sm);
+  auto processCallState = new ProcessCallState(&this->sm);
+  auto preState = new PreState(&this->sm);
+  auto externalState = new ExternalState(&this->sm);
   auto finalState = new QFinalState(&this->sm);
 
   {

@@ -10,7 +10,7 @@ public:
   PollState(QState *);
 
 protected:
-
+  void onEntry(QEvent *) override;
 };
 
 
