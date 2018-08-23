@@ -6,6 +6,7 @@
 #include "pitypes.h"
 #include "pistatemachine.h"
 #include "gilbarcopollingstatemachine.h"
+#include "gilbarcoevents.h"
 
 void testPiStateMachine()
 {
@@ -36,8 +37,9 @@ void testPiStateMachine()
 void testGilbarcoPolling()
 {
   GilbarcoPollingStateMachine machine(nullptr);
-
   machine.start();
+
+  machine.postEvent(new DEvent());
 }
 
 int main(int argc, char *argv[])

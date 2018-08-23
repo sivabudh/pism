@@ -68,4 +68,10 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
 void GilbarcoPollingStateMachine::start()
 {
 
+  this->sm.start();
+}
+
+void GilbarcoPollingStateMachine::postEvent(QEvent * event_)
+{
+  this->sm.postEvent(event_);
 }

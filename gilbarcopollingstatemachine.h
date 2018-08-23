@@ -12,6 +12,7 @@ public:
 
 public slots:
   void start();
+  void postEvent(QEvent *);
 
 
 private:
