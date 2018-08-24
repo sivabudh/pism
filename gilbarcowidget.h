@@ -2,6 +2,8 @@
 
 #include <QWidget>
 
+#include "logswidget.h"
+
 class GilbarcoWidget : public QWidget
 {
   Q_OBJECT
@@ -9,7 +11,11 @@ class GilbarcoWidget : public QWidget
 public:
   explicit GilbarcoWidget(QWidget *parent_ = nullptr);
 
+public:
+  LogsWidget * logs;
+
 signals:
 
 public slots:
+
 };

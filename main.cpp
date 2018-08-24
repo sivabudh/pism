@@ -31,19 +31,23 @@ void testPiStateMachine()
     });
   });
 
-
   machine.start();
 }
 
 void testGilbarcoPolling()
 {
-  auto gilbarco = new GilbarcoWidget(nullptr);
-  gilbarco->show();
+  auto widget = new GilbarcoWidget(nullptr);
+  widget->show();
 
-  GilbarcoPollingStateMachine machine(nullptr);
-  machine.start();
+  auto machine = new GilbarcoPollingStateMachine(nullptr);
+  machine->start();
 
-  machine.postEvent(new DEvent());
+  QObject::connect(machine, &GilbarcoPollingStateMachine::newLog,
+                   widget->logs, &LogsWidget::append);
+  widget->logs->append("Everything is running..");
+
+
+  machine->postEvent(new DEvent());
 }
 
 int main(int argc, char *argv[])

@@ -51,15 +51,14 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
     }
   }
   {
-    connect(finalState, &QState::entered, [](){
-      qDebug() << "Final state entered and is finished!";
+    connect(finalState, &QState::entered, [=](){
+      emit newLog("Final state entered and is finished!");
     });
   }
 }
 
 void GilbarcoPollingStateMachine::start()
 {
-
   this->sm.start();
 }
 

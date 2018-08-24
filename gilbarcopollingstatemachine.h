@@ -10,10 +10,12 @@ class GilbarcoPollingStateMachine : public QObject
 public:
   GilbarcoPollingStateMachine(QObject * parent_);
 
+signals:
+  void newLog(QString const);
+
 public slots:
   void start();
   void postEvent(QEvent *);
-
 
 private:
   QStateMachine sm;

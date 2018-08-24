@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     gilbarcopollingtransitions.cpp \
     gilbarcoevents.cpp \
     gilbarcopollingstates.cpp \
-    gilbarcowidget.cpp
+    gilbarcowidget.cpp \
+    logswidget.cpp
 
 HEADERS += \
     pistatemachine.h \
@@ -37,4 +38,5 @@ HEADERS += \
     gilbarcopollingtransitions.h \
     gilbarcoevents.h \
     gilbarcopollingstates.h \
-    gilbarcowidget.h
+    gilbarcowidget.h \
+    logswidget.h
