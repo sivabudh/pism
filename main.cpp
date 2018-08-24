@@ -44,10 +44,10 @@ void testGilbarcoPolling()
 
   QObject::connect(machine, &GilbarcoPollingStateMachine::newLog,
                    widget->logs, &LogsWidget::append);
+  QObject::connect(widget, &GilbarcoWidget::buttonClicked,
+                   machine, &GilbarcoPollingStateMachine::postEvent);
+
   widget->logs->append("Everything is running..");
-
-
-  machine->postEvent(new DEvent());
 }
 
 int main(int argc, char *argv[])

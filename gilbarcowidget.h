@@ -15,7 +15,7 @@ public:
   LogsWidget * logs;
 
 signals:
+  void buttonClicked(QEvent *);
 
-public slots:
-
+private:
 };
