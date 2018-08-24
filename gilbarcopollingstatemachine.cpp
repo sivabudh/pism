@@ -40,7 +40,7 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
     {
       auto dTransition = new DTransition();
       preState->addTransition(dTransition);
-      dTransition->setTargetState(preState);
+      dTransition->setTargetState(externalState);
     }
   }
   {
