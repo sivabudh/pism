@@ -55,6 +55,11 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
       emit newLog("Final state entered and is finished!");
     });
   }
+
+  connect(pollState, &PollState::newLog, this, &GilbarcoPollingStateMachine::newLog);
+  connect(processCallState, &ProcessCallState::newLog, this, &GilbarcoPollingStateMachine::newLog);
+  connect(preState, &PreState::newLog, this, &GilbarcoPollingStateMachine::newLog);
+  connect(externalState, &ExternalState::newLog, this, &GilbarcoPollingStateMachine::newLog);
 }
 
 void GilbarcoPollingStateMachine::start()

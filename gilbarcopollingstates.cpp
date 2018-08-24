@@ -8,8 +8,9 @@ PollState::PollState(QState * parent_)
 
 void PollState::onEntry(QEvent *)
 {
-  // TODO: Implemented with action of state
+  emit newLog("PollState");
 }
+
 
 ProcessCallState::ProcessCallState(QState * parent_)
   : QState(parent_)
@@ -19,7 +20,7 @@ ProcessCallState::ProcessCallState(QState * parent_)
 
 void ProcessCallState::onEntry(QEvent *)
 {
-  // TODO: Implemented with action of state
+  emit newLog("ProcessCallState");
 }
 
 PreState::PreState(QState * parent_)
@@ -30,7 +31,7 @@ PreState::PreState(QState * parent_)
 
 void PreState::onEntry(QEvent *)
 {
-  // TODO: Implemented with action of state
+  emit newLog("PreState");
 }
 
 ExternalState::ExternalState(QState * parent_)
@@ -41,5 +42,5 @@ ExternalState::ExternalState(QState * parent_)
 
 void ExternalState::onEntry(QEvent *)
 {
-  // TODO: Implemented with action of state
+  emit newLog("ExternalState");
 }
