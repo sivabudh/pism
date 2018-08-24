@@ -25,8 +25,6 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
     }
   }
   {
-    this->sm.addState(processCallState);
-
     {
       auto offTransition = new PreviousOffTransition();
       processCallState->addTransition(offTransition);
@@ -39,8 +37,6 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
     }
   }
   {
-    this->sm.addState(preState);
-
     {
       auto dTransition = new DTransition();
       preState->addTransition(dTransition);
@@ -48,8 +44,6 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
     }
   }
   {
-    this->sm.addState(externalState);
-
     {
       auto nozzleNumberTransition = new NozzleNumberTransition();
       externalState->addTransition(nozzleNumberTransition);
@@ -57,8 +51,6 @@ GilbarcoPollingStateMachine::GilbarcoPollingStateMachine(QObject * parent_)
     }
   }
   {
-    this->sm.addState(finalState);
-
     connect(finalState, &QState::entered, [](){
       qDebug() << "Final state entered and is finished!";
     });

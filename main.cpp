@@ -7,6 +7,7 @@
 #include "pistatemachine.h"
 #include "gilbarcopollingstatemachine.h"
 #include "gilbarcoevents.h"
+#include "gilbarcowidget.h"
 
 void testPiStateMachine()
 {
@@ -36,6 +37,9 @@ void testPiStateMachine()
 
 void testGilbarcoPolling()
 {
+  auto gilbarco = new GilbarcoWidget(nullptr);
+  gilbarco->show();
+
   GilbarcoPollingStateMachine machine(nullptr);
   machine.start();
 
